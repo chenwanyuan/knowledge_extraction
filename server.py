@@ -29,15 +29,7 @@ import logging
 
 
 
-#g_textprocess = TextProcess(MODEL_PARAM)
 
-
-#class InputData():
-#    def __init__(self,sequence_id,partnercode,event,content):
-#        self.sequence_id = sequence_id
-#        self.partnercode = partnercode
-#        self.event = event
-#        self.content = content
 class JRes():
     '''
     JRes json的返回数据格式
