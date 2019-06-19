@@ -2,7 +2,7 @@
 结构化信息抽取，知识构建。  
 源于第四届智能和语言大赛。  
 最终结果是第18名。  
-工作中的状态，只能利用业余时间，整个比赛就提交了3次结果，真希望下次有时间，好好搞一搞。
+工作中的状态，只能利用业余时间，整个比赛就提交了3次结果，真希望下次有时间，好好搞一搞。  
 这是我第一次提交的baseline的方法。当时第一次提交是f1=82%, 第三次结果是86%
 
 # 简介  
@@ -29,8 +29,8 @@ pip install tornado
 pip install tqdm  
 # 步骤  
 ## 下载bert模型  
-下载bert的中文模型放在data/chinese_L-12_H-768_A-12  链接 [https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip]  
-tar -xzvf corpus.tar.gz  
+下载bert的中文模型放在data/chinese_L-12_H-768_A-12  [链接](https://storage.googleapis.com/bert_models/2018_11_03/chinese_L-12_H-768_A-12.zip)  
+解压语料 tar -xzvf corpus.tar.gz  
 ## schema分类器训练  
 ### 1.制作训练语料  
 python classifier.py --type corpus  
