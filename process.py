@@ -233,21 +233,21 @@ if __name__ == '__main__':
     os.environ["CUDA_VISIBLE_DEVICES"] = "0"
     spo_name = '歌曲-作曲-人物'
     content = '丝角蝗科，Oedipodidae，昆虫纲直翅目蝗总科的一个科'
-    # classifier = ClassifierProcess('../data/graph/classifier.pb',bert_vocab_file='../data/chinese_L-12_H-768_A-12/vocab.txt',schema_file='../data/all_50_schemas',sequence_length=256)
+    # classifier = ClassifierProcess('./data/graph/classifier.pb',bert_vocab_file='./data/chinese_L-12_H-768_A-12/vocab.txt',schema_file='./data/all_50_schemas',sequence_length=256)
     # print(classifier.process(content))
-    #extractor = ExtractorProcess('../data/graph/extractor.pb',bert_vocab_file='../data/chinese_L-12_H-768_A-12/vocab.txt',sequence_length=256)
+    #extractor = ExtractorProcess('./data/graph/extractor.pb',bert_vocab_file='./data/chinese_L-12_H-768_A-12/vocab.txt',sequence_length=256)
     #print(extractor.process(spo_name,content))
 
     param = {
         'classifier':{
-            'frozen_graph_filename':'../data/graph/classifier.pb',
-            'bert_vocab_file': '../data/chinese_L-12_H-768_A-12/vocab.txt',
-            'schema_file':'../data/all_50_schemas',
+            'frozen_graph_filename':'./data/graph/classifier.pb',
+            'bert_vocab_file': './data/chinese_L-12_H-768_A-12/vocab.txt',
+            'schema_file':'./data/all_50_schemas',
             'sequence_length':256
         },
         'extractor': {
-            'frozen_graph_filename': '../data/graph/extractor.pb',
-            'bert_vocab_file': '../data/chinese_L-12_H-768_A-12/vocab.txt',
+            'frozen_graph_filename': './data/graph/extractor.pb',
+            'bert_vocab_file': './data/chinese_L-12_H-768_A-12/vocab.txt',
             'sequence_length': 256
         }
     }

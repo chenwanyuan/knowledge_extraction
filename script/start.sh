@@ -2,7 +2,7 @@
 DIR=$PWD
 
 basepath=$(cd `dirname $0`; pwd)
-cd ${basepath}/../src
+cd ${basepath}/../
 
 
 count=`ps -ef | grep 'python' | grep 'server.py' | grep '7070' |grep -v "grep" |wc -l`

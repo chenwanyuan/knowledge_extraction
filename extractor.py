@@ -16,12 +16,12 @@ from bert import tokenization
 from bert import optimization
 
 
-bert_config_file = '../data/chinese_L-12_H-768_A-12/bert_config.json'
+bert_config_file = './data/chinese_L-12_H-768_A-12/bert_config.json'
 bert_config = modeling.BertConfig.from_json_file(bert_config_file)
-init_checkpoint = '../data/chinese_L-12_H-768_A-12/bert_model.ckpt'
-schema_file = '../data/all_50_schemas'
+init_checkpoint = './data/chinese_L-12_H-768_A-12/bert_model.ckpt'
+schema_file = './data/all_50_schemas'
 bert_tokenizer = tokenization.FullTokenizer(
-        vocab_file="../data/chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True)
+        vocab_file="./data/chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True)
 
 
 label2id = {'0': 0, 'B-S': 1, "I-S": 2, 'B-O': 3, 'I-O': 4}
@@ -29,9 +29,9 @@ id2label = {}
 for label, id in label2id.items():
     id2label[id] = label
 sequence_length = 256
-ckpt_dir = '../extractor'
-train_file = 'train.tfrecord'
-corpus_file = '../data/train_data.json'
+ckpt_dir = './extractor'
+train_file = 'data/train_extractor.tfrecord'
+corpus_file = './data/train_data.json'
 
 
 def find_all(text,patten):

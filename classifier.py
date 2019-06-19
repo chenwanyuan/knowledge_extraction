@@ -20,17 +20,17 @@ import traceback
 
 
 
-bert_config_file = '../data/chinese_L-12_H-768_A-12/bert_config.json'
+bert_config_file = './data/chinese_L-12_H-768_A-12/bert_config.json'
 bert_config = modeling.BertConfig.from_json_file(bert_config_file)
-init_checkpoint = '../data/chinese_L-12_H-768_A-12/bert_model.ckpt'
+init_checkpoint = './data/chinese_L-12_H-768_A-12/bert_model.ckpt'
 bert_tokenizer = tokenization.FullTokenizer(
-        vocab_file="../data/chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True)
+        vocab_file="./data/chinese_L-12_H-768_A-12/vocab.txt", do_lower_case=True)
 
 
-schema_file = '../data/all_50_schemas'
-ckpt_dir = '../classfier'
-train_file = '../data/train.tfrecord'
-corpus_file = '../data/train_data.json'
+schema_file = './data/all_50_schemas'
+ckpt_dir = './classfier'
+train_file = './data/train_classifier.tfrecord'
+corpus_file = './data/train_data.json'
 schema2id = {}
 id2schema = {}
 sequence_length = 256
@@ -274,9 +274,9 @@ def freeze_graph():
         'segment_ids': tf.placeholder(shape=[1, sequence_length], dtype=tf.int32, name='segment_ids'),
     }
     model = BertClassifier(bert_config, features, len(id2schema), init_checkpoint,is_training=False)
-    if not os.path.isdir('../data/graph'):
-        os.makedirs('../data/graph')
-    output_graph = os.path.join('../data/graph', "classifier.pb")
+    if not os.path.isdir('./data/graph'):
+        os.makedirs('./data/graph')
+    output_graph = os.path.join('./data/graph', "classifier.pb")
     output_node_names = "logits"  # 原模型输出操作节点的名字
 
     checkpoint = tf.train.get_checkpoint_state(ckpt_dir)
