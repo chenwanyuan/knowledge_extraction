@@ -59,7 +59,7 @@ def write_tfrecord(file,tfrecord_file,sequence_length):
     num = 0
     with open(file, encoding='utf-8') as fp:
         for line in fp:
-            if num > 2000:break
+            #if num > 2000:break
             line = line.strip()
             data = json.loads(line)
             text = data['text']
@@ -210,7 +210,7 @@ def train():
     warmup_proportion = 0.1
     learning_rate = 5e-5
     batch_size = 36
-    length = 2000#173108
+    length = 173108
     num_schema = len(schema2id)
 
     train_dataset = input_fn_builder(
@@ -262,7 +262,7 @@ def train():
                 if global_step % 10 == 0:
                     #用于tensorboard查看使用
                     train_summary_writer.add_summary(train_summary, global_step=global_step)
-                if global_step % 5 == 0:
+                if global_step % 200 == 0:
                     checkpoint_prefix = os.path.join(ckpt_dir, 'classifier')
                     saver.save(sess, checkpoint_prefix, global_step=global_step)
 
