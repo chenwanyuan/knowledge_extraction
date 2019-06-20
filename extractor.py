@@ -52,7 +52,7 @@ def write_tfrecord(file,tfrecord_file,max_sequence_length = 256):
     num = 0
     with open(file,encoding='utf8') as fp:
         for q_id,line in enumerate(fp):
-            if num > 2000:break
+            #if num > 2000:break
             data = json.loads(line.strip())
 
 
@@ -303,7 +303,7 @@ def train():
     warmup_proportion = 0.1
     learning_rate = 5e-5
     batch_size = 36
-    length = 2000#173108
+    length = 173108
     train_dataset = input_fn_builder(
         input_file=train_file,
         max_sequence_length = sequence_length,
@@ -350,7 +350,7 @@ def train():
                     current_epoch += 1
                 if global_step % 10 == 0:
                     train_summary_writer.add_summary(train_summary, global_step=global_step)
-                if global_step % 5 == 0:
+                if global_step % 200 == 0:
                     checkpoint_prefix = os.path.join(ckpt_dir, 'bert_crf')
                     saver.save(sess, checkpoint_prefix, global_step=global_step)
 def freeze_graph():
